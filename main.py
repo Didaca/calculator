@@ -3,36 +3,54 @@ from tkinter import *
 
 def plus():
     total_result = round(float(first_input) + float(second_input), 14)
+    total_result = check_result(str(total_result))
     value.set(f"{total_result}")
 
 
 def minus():
     total_result = round(float(first_input) - float(second_input), 14)
+    total_result = check_result(str(total_result))
     value.set(f"{total_result}")
 
 
 def multiply():
     total_result = round(float(first_input) * float(second_input), 14)
+    total_result = check_result(str(total_result))
     value.set(f"{total_result}")
 
 
 def divide():
     total_result = round(float(first_input) / float(second_input), 14)
+    total_result = check_result(str(total_result))
     value.set(f"{total_result}")
 
 
 def fraction():
     total_result = round(1 / int(first_input), 14)
+    total_result = check_result(str(total_result))
     value.set(f"{total_result}")
 
 
 def percent():
     if operation == "+":
         total_result = round(float(first_input) + (float(first_input) * (float(second_input) / 100)), 14)
+        total_result = check_result(str(total_result))
         value.set(f"{total_result}")
     elif operation == "-":
         total_result = round(float(first_input) - (float(first_input) * (float(second_input) / 100)), 14)
+        total_result = check_result(str(total_result))
         value.set(f"{total_result}")
+
+
+def check_result(rs):
+    all_parts = rs.split(".")
+    first_part = all_parts[0]
+    second_parts = all_parts[1]
+
+    if len(second_parts) == 1 and second_parts == "0":
+        return first_part
+    else:
+        return rs
 
 
 def remove_last_symbol(text):
