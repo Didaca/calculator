@@ -1,2 +1,2 @@
 Calculator
-Uses Tkinput library
+Uses Tkinter library
