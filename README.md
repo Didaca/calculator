@@ -1,2 +1,1 @@
-Calculator
-Uses Tkinter library
+Calculator uses Tkinter library
