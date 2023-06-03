@@ -29,6 +29,7 @@ def fraction():
     total_result = round(1 / int(first_input), 14)
     total_result = check_result(str(total_result))
     value.set(f"{total_result}")
+    read_next()
 
 
 def percent():
@@ -36,10 +37,12 @@ def percent():
         total_result = round(float(first_input) + (float(first_input) * (float(second_input) / 100)), 14)
         total_result = check_result(str(total_result))
         value.set(f"{total_result}")
+        read_next()
     elif operation == "-":
         total_result = round(float(first_input) - (float(first_input) * (float(second_input) / 100)), 14)
         total_result = check_result(str(total_result))
         value.set(f"{total_result}")
+        read_next()
 
 
 def check_result(rs):
@@ -51,6 +54,15 @@ def check_result(rs):
         return first_part
     else:
         return rs
+
+
+def read_next():
+    global first_input
+
+    temporary = str(value.get())
+    clean()
+    first_input = temporary
+    value.set(first_input)
 
 
 def remove_last_symbol(text):
@@ -136,10 +148,16 @@ def joining(in_put):
         next_input = True
         value.set(in_put)
     elif not next_input:
-        first_input = first_input + str(in_put)
+        if first_input == "0":
+            first_input = str(in_put)
+        else:
+            first_input = first_input + str(in_put)
         value.set(first_input)
     else:
-        second_input = second_input + str(in_put)
+        if second_input == "0":
+            second_input = str(in_put)
+        else:
+            second_input = second_input + str(in_put)
         value.set(second_input)
 
 
@@ -162,12 +180,16 @@ def result():
 
     if operation == "+":
         plus()
+        read_next()
     elif operation == "-":
         minus()
+        read_next()
     elif operation == "*":
         multiply()
+        read_next()
     elif operation == "/":
         divide()
+        read_next()
 
 
 def memory_clean():
