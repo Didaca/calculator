@@ -2,21 +2,30 @@ from tkinter import *
 
 
 def plus():
-    total_result = round(float(first_input) + float(second_input), 14)
-    total_result = check_result(str(total_result))
-    value.set(f"{total_result}")
+    try:
+        total_result = round(float(first_input) + float(second_input), 14)
+        total_result = check_result(str(total_result))
+        value.set(f"{total_result}")
+    except ValueError:
+        value.set("Invalid operation")
 
 
 def minus():
-    total_result = round(float(first_input) - float(second_input), 14)
-    total_result = check_result(str(total_result))
-    value.set(f"{total_result}")
+    try:
+        total_result = round(float(first_input) - float(second_input), 14)
+        total_result = check_result(str(total_result))
+        value.set(f"{total_result}")
+    except ValueError:
+        value.set("Invalid operation")
 
 
 def multiply():
-    total_result = round(float(first_input) * float(second_input), 14)
-    total_result = check_result(str(total_result))
-    value.set(f"{total_result}")
+    try:
+        total_result = round(float(first_input) * float(second_input), 14)
+        total_result = check_result(str(total_result))
+        value.set(f"{total_result}")
+    except ValueError:
+        value.set("Invalid operation")
 
 
 def divide():
@@ -26,13 +35,18 @@ def divide():
         value.set(f"{total_result}")
     except ZeroDivisionError:
         value.set("Invalid operation")
+    except ValueError:
+        value.set("Invalid operation")
 
 
 def fraction():
-    total_result = round(1 / int(first_input), 14)
-    total_result = check_result(str(total_result))
-    value.set(f"{total_result}")
-    read_next()
+    try:
+        total_result = round(1 / int(first_input), 14)
+        total_result = check_result(str(total_result))
+        value.set(f"{total_result}")
+        read_next()
+    except ValueError:
+        value.set("Invalid operation")
 
 
 def percent():
