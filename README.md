@@ -1,4 +1,4 @@
                 #Calculator 
     uses Tkinter library (“Tk interface”)
 
-    <img src="./images/landing.png" >
+    ![](C:\Users\Win10\PycharmProjects\Calculator\images\main-interface.png "Main Interface")
