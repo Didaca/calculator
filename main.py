@@ -105,18 +105,19 @@ def add_remove_prefix():
     else:
         text = first_input
 
-    if text.startswith("-"):
-        new_text += text[1:]
-    else:
-        new_text += '-'
-        new_text += text
+    if text != "0":
+        if text.startswith("-"):
+            new_text += text[1:]
+        else:
+            new_text += '-'
+            new_text += text
 
-    if next_input:
-        second_input = new_text
-        value.set(second_input)
-    else:
-        first_input = new_text
-        value.set(first_input)
+        if next_input:
+            second_input = new_text
+            value.set(second_input)
+        else:
+            first_input = new_text
+            value.set(first_input)
 
 
 def bind_comma():
@@ -184,12 +185,12 @@ def clean():
     global operation
     global next_input
 
-    first_input = ""
+    first_input = "0"
     second_input = ""
     operation = ""
     next_input = False
 
-    value.set("0")
+    value.set(first_input)
 
 
 def result():
@@ -267,14 +268,14 @@ window.geometry("400x550")
 window.resizable(False, False)
 window.config(bg="#33415c", pady=16, padx=18)
 
-first_input = ""
+first_input = "0"
 second_input = ""
 operation = ""
 next_input = False
 memory_value = ""
 
 value = StringVar()
-value.set("0")
+value.set(first_input)
 
 label = Label(window, textvariable=value)
 label.config(bg="#33415c", width=24, height=2, font="helvetica 30", anchor="e", foreground="#fff")
