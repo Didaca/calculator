@@ -20,3 +20,7 @@ uses Tkinter library (“Tk interface”)
 * Result
 
 !["Result hover effect"](/images/hover-result.png)
+
+### Error messages:
+
+* If an error message is displayed you can clear it with C-button

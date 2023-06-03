@@ -20,9 +20,12 @@ def multiply():
 
 
 def divide():
-    total_result = round(float(first_input) / float(second_input), 14)
-    total_result = check_result(str(total_result))
-    value.set(f"{total_result}")
+    try:
+        total_result = round(float(first_input) / float(second_input), 14)
+        total_result = check_result(str(total_result))
+        value.set(f"{total_result}")
+    except ZeroDivisionError:
+        value.set("Invalid operation")
 
 
 def fraction():
