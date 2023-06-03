@@ -116,7 +116,6 @@ def bind_comma():
 def del_last_symbol():
     global first_input
     global second_input
-    global next_input
 
     if next_input:
         second_input = remove_last_symbol(second_input)
@@ -172,25 +171,39 @@ def result():
 
 
 def memory_clean():
-    global memory_mc
+    global memory_value
 
-    memory_mc = ""
+    memory_value = ""
 
 
 def memory_read():
-    pass
+    global first_input
+    global second_input
+
+    if next_input:
+        second_input = memory_value
+        value.set(second_input)
+    else:
+        first_input = memory_value
+        value.set(first_input)
 
 
 def memory_save():
-    pass
+    global memory_value
+
+    memory_value = value.get()
 
 
 def memory_plus():
-    pass
+    global memory_value
+
+    memory_value = check_result(str(round(float(memory_value) + float(value.get()), 14)))
 
 
 def memory_minus():
-    pass
+    global memory_value
+
+    memory_value = check_result(str(round(float(memory_value) - float(value.get()), 14)))
 
 
 def add_hover(event):
@@ -219,7 +232,7 @@ first_input = ""
 second_input = ""
 operation = ""
 next_input = False
-memory_mc = ""
+memory_value = ""
 
 value = StringVar()
 value.set("0")
