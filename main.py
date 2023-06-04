@@ -47,6 +47,8 @@ def fraction():
         read_next()
     except ValueError:
         value.set("Invalid operation")
+    except ZeroDivisionError:
+        value.set("Invalid operation")
 
 
 def percent():
